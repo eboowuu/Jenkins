@@ -11,6 +11,17 @@ pipeline {
                 echo "Success:Stage1"
             }
         }
+   
+        stage('Send email') {
+            def mailRecipients = "eboowuu@gmail.com"
+            def jobName = currentBuild.fullDisplayName
+        
+            emailext body: '''${SCRIPT, template="my-email.template"}''',
+                subject: "[Jenkins] ${jobName}",
+                to: "${mailRecipients}",
+                replyTo: "${mailRecipients}",
+                recipientProviders: [[$class: 'CulpritsRecipientProvider']]
+        }
     }
     post {
         always {
