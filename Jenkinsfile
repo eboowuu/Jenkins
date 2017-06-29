@@ -23,7 +23,7 @@ pipeline {
                 for (String item: logs) {
                     if(item.contains('[Pipeline]') == false) {
                         //item = item.replaceAll(/Bo Wu/, ' ')
-                        email_logs = email_logs + item + '\r\n'    
+                        email_logs = email_logs + item + "\n"    
                     }
                 }
             }
