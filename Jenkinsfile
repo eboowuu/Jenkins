@@ -27,12 +27,12 @@ pipeline {
             }
             emailext (
                 attachLog: true,
-                subject: "${currentBuild.result}: Job '${env.JOB_NAME}",
+                subject: "${currentBuild.result}: Job [${env.JOB_NAME}]",
                 mimeType: 'text/html',
                 body: """<p>${currentBuild.result}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-                <h3>Build Logs</h3>
+                <h3 color='red'>Build Logs</h3>
                 <pre color='red'>${email_logs}</pre>
-                <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
+                <p>Check console output at "<a href="${env.BUILD_URL}/consoleText">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
                 to: 'eboowuu@gmail.com'
             )
         }
