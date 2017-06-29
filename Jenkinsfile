@@ -19,7 +19,7 @@ pipeline {
                     currentBuild.result = 'SUCCESS'
                 }
                 logs = currentBuild.rawBuild.getLog(200)
-                email_logs = []
+                
                 for (String item: logs) {
                     if(item.contains('[Pipeline]') == false) {
                         //item = item.replaceAll(/Bo Wu/, ' ')
