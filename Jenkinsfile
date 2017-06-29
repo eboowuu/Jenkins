@@ -1,7 +1,7 @@
 pipeline {
     agent any
     options {
-        //timestamps()
+        timestamps()
         timeout(time: 30, unit: 'MINUTES') 
     }
     stages {
@@ -25,6 +25,7 @@ pipeline {
                     }
                 }
             }
+            echo currentBuild.result
             emailext (
                 attachLog: true,
                 subject: "${currentBuild.result}: Job [${env.JOB_NAME}]",
