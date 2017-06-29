@@ -18,7 +18,7 @@ pipeline {
                     def mailRecipients = "eboowuu@gmail.com"
                     def jobName = currentBuild.fullDisplayName
         
-                    emailext body: '''${SCRIPT, template="my-email.template"}''',
+                    emailext body: '''${SCRIPT, template="groovy-html-larry.template"}''',
                         subject: "[Jenkins] ${jobName}",
                         to: "${mailRecipients}",
                         replyTo: "${mailRecipients}",
