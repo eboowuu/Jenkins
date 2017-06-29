@@ -8,6 +8,7 @@ pipeline {
         stage('stage1') {
             steps {
                 echo "stage 1 running...."
+                echo "Success:Stage1"
             }
         }
     }
