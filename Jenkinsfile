@@ -22,6 +22,7 @@ pipeline {
                 email_logs = []
                 for (String item: logs) {
                     if(item.contains('[Pipeline]') == false) {
+                        item.replace(',', ' ')
                         email_logs.add(item + '\r\n')    
                     }
                 }
