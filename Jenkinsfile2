@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Pull')  {
+          steps {
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'GitHub', url: 'git@github.com:duncansuttles/EnBCIT.git']]])
+          }
+        }
+        stage('Build') {
+            steps {
+                bat 'cd SeleniumTest && mvn test'
+            }
+        }
+    }
+}
