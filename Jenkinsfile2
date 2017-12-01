@@ -12,5 +12,10 @@ pipeline {
                 bat 'cd SeleniumTest && mvn test'
             }
         }
+        stage('Report'){
+            steps {
+                junit 'SeleniumTest\\target\\surefire-reports\\TEST-net.magnetar.starwiki.TestWiki.xml'
+            }
+        }
     }
 }
